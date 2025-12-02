@@ -86,3 +86,19 @@ BiocManager::install(c("EnsDb.Hsapiens.v86"))
 
 
 
+
+## Credits 
+
+Breast cancer atlas:
+Wu, S. Z., Al-Eryani, G., Roden, D. L., Junankar, S., Harvey, K., Andersson, A., ... & Swarbrick, A. (2021). A single-cell and spatially resolved atlas of human breast cancers. Nature genetics, 53(9), 1334-1347.
+
+ChIP-Atlas:
+Zou, Z., Ohta, T., & Oki, S. (2024). ChIP-Atlas 3.0: a data-mining suite to explore chromosome architecture together with large-scale regulome data. Nucleic Acids Research, 52(W1), W45-W53.
+licensed under CC-BY 4.0 
+
+ENCODE cCREs: ENCFF389ZVZ
+
+
+
+
+
