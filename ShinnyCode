@@ -88,28 +88,28 @@ names(palMaj_all) <- majors_all
 ui <- navbarPage(
   id = "mainnav",
   theme = app_theme,
-  title = tagList(icon("microscope"), "Breast Cancer Toolkit"),
+  title = tagList(icon("microscope"), "BREAST (Breast cancer Expression Analysis Software Tool"),
   
   # -------- Home --------
   tabPanel(
     title = "Home",
     icon = icon("house"),
     fluidPage(
-      tags$head(tags$title("Breast Cancer Toolkit – Home")),
+      tags$head(tags$title("BREAST – Home")),
       br(),
       fluidRow(
         column(
           width = 6,
           card(
             class = "shadow-sm rounded-3 border-0",
-            card_header(tagList(icon("dna"), strong("scBREAST — scRNA-Seq Viewer"))),
+            card_header(tagList(icon("dna"), strong("BREAST - scRNA-Seq Viewer"))),
             card_body(
-              p("Explore single-cell atlas, plot Feature/Jitter, recluster minors, run DE (Gene+ vs Gene−)."),
+              p("Explore single-cell atlas, plot Feature/Jitter, recluster major cell subtypes, run differential expression analysis (Gene+ vs Gene- in a given population)."),
               tags$ul(
                 tags$li("Requires: seurat_obj.rds"),
                 tags$li("Subsets by tumor subtype and major cell types")
               ),
-              actionButton("go_scbreast", "Open scBREAST", class = "btn btn-primary")
+              actionButton("go_scbreast", "Open BREAST", class = "btn btn-primary")
             )
           )
         ),
@@ -134,7 +134,7 @@ ui <- navbarPage(
   
   # -------- scBREAST --------
   tabPanel(
-    title = "scBREAST",
+    title = "BREAST",
     icon = icon("diagram-project"),
     sidebarLayout(
       sidebarPanel(
@@ -166,7 +166,7 @@ ui <- navbarPage(
         
         hr(),
         h6("Export PDF", class = "text-primary fw-bold"),
-        textInput("sc_filebase", "File name (no extension):", "scBREAST_plot"),
+        textInput("sc_filebase", "File name (no extension):", "BREAST_plot"),
         numericInput("sc_w_in", "Width (in):", 6, min = 2, max = 20, step = 0.5),
         numericInput("sc_h_in", "Height (in):", 5, min = 2, max = 20, step = 0.5),
         
@@ -460,7 +460,7 @@ server <- function(input, output, session){
       need(n_tab[["Gene+"]] >= min_cells, paste0("Too few Gene+ cells (", n_tab[["Gene+"]], ")."))
     )
     
-    withProgress(message = "Running FindMarkers…", value = 0, {
+    withProgress(message = "Running FindMarkers (can be long)…", value = 0, {
       incProgress(0.2)
       res <- FindMarkers(
         obj,
