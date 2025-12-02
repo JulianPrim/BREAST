@@ -1,7 +1,7 @@
-# single cell Breast cancer Expression Analysis Software (scBREAST)
-viewer of Wu et al. single cell atlas of breast tumors (PMID: 34493872)
+# Breast cancer Expression Analysis Software (BREAST)
+viewer of Wu et al. single cell atlas of breast tumors (PMID: 34493872) and global T47D public ChIP-seq data downloaded from ChIP-Atlas.
 
-Download the release "seurat_obj.rds", put it in a folder. In R, set up your working directory in that folder. Copy-Paste the script and press runApp.
+To use the single cell part of the viewer: 
+Download the release "seurat_obj.rds", put it in a folder, the same as the App.R code that you will create in R). In R, set up your working directory in that folder. Copy-Paste the script, install all the packages and press runApp.
 
-<img width="911" height="775" alt="image" src="https://github.com/user-attachments/assets/fa216af8-a3e6-4d53-817f-b5c738701530" />
 
