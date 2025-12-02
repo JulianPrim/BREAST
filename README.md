@@ -63,7 +63,7 @@ With `T47D_formatted_50.bed` (ChIP-Atlas export) and optional `ENCFF389ZVZ_cCREs
    - `app.R` (the script)
    - `seurat_obj.rds`
    - `T47D_formatted_50.bed`
-   - optional: `ENCFF389ZVZ_cCREs.bigBed`
+   - `ENCFF389ZVZ_cCREs.bigBed`
 
 2. In R / RStudio:
    ```r
