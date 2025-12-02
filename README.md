@@ -1,4 +1,4 @@
-# BREAST — Breast cancer Expression Analysis Software Tool  
+# BREAST - Breast cancer Expression Analysis Software Tool  
 **A Shiny toolkit combining a single-cell breast tumor atlas viewer with a T-47D ChIP-Atlas browser.**
 
 BREAST is an R/Shiny application that provides:
