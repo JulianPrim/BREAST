@@ -53,7 +53,6 @@ With `T47D_formatted_50.bed` (ChIP-Atlas export) and optional `ENCFF389ZVZ_cCREs
     - `seurat_obj.rds`
   - **Mandatory (ChIP viewer):**
     - `T47D_formatted_50.bed`
-  - **Optional (ChIP viewer cCRE overlay):**
     - `ENCFF389ZVZ_cCREs.bigBed`
 
 ---
