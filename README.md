@@ -1,16 +1,71 @@
-# Breast cancer Expression Analysis Software Tool (BREAST)
-viewer of Wu et al. single cell atlas of breast tumors (PMID: 34493872) and global T47D public ChIP-seq data downloaded from ChIP-Atlas.
+# BREAST — Breast cancer Expression Analysis Software Tool  
+**A Shiny toolkit combining a single-cell breast tumor atlas viewer with a T-47D ChIP-Atlas browser.**
 
-To use the single cell part of the viewer: 
-Download the release "seurat_obj.rds", put it in a folder, the same as the App.R code that you will create in R). In R, set up your working directory in that folder. Copy-Paste the script, install all the packages and press runApp.
+BREAST is an R/Shiny application that provides:
+1) **Interactive exploration of the Wu et al. breast cancer single-cell atlas** (PMID: 34493872) via a Seurat object, with publication-ready plots and an **in-app differential expression workflow (Gene+ vs Gene−)**.  
+2) **A T-47D ChIP Viewer** to visualize **ChIP-Atlas peaks around any HGNC gene**, optionally overlaid with **ENCODE cCREs**.
 
-Here is the global home view of our tool:
-<img width="906" height="675" alt="image" src="https://github.com/user-attachments/assets/b67fc956-35c5-4519-963a-adbebb9e3ef1" />
+---
 
+## Features
 
-To use the single cell part of the viewer: 
-Download the release "seurat_obj.rds", put it in a folder, the same as the App.R code that you will create in R). In R, set up your working directory in that folder. Copy-Paste the script, install all the packages and press runApp.
+### 1) Single-cell module (BREAST)
+Using the provided `seurat_obj.rds`, you can:
 
-<img width="974" height="806" alt="image" src="https://github.com/user-attachments/assets/a02a5d97-bebc-42e6-8024-c338d49ed669" />
+- **Subset by tumor subtype** (e.g., ER+, HER2+, TNBC; depends on metadata column `subtype`)
+- **Visualize gene expression** for any gene in the object:
+  - **FeaturePlot** on a UMAP
+  - **Jitter plot** by major cell type
+- **Explore major and minor structure**
+  - A global UMAP of the selected subtype (recomputed in-app)
+  - Optional **reclustering within a selected major cell type** (minor clusters)
+- **Run differential expression (FindMarkers) without writing new code**
+  - Choose a gene, define a threshold, and compare **Gene+ vs Gene−**
+  - Scope can be:
+    - All cells within the selected subtype, or
+    - Only cells from a selected **major cell type**
+  - Outputs:
+    - A **downloadable CSV** of DE results
+    - A quick **volcano plot**
+    - An interactive **results table**
 
-You can select a type of tumor microenvironment between ER+, HER2 and TNBC (Triple negative breast cancer). In each, you can display either a feature plot or a jitter plot of the gene available in the wu et al. dataset, of your choice. Until here, this viewer is not better than the original publication on the single cell portal, but we added a function to use Findmarkers on given populations and genes, allowing to infer on genes functions and impacts in the breast cancer tumor microenvironemnent. The output is a downloadable csv table with statistics. The parameters of the graphs are adjustable to render good quality and publishable graphs without any new coding steps. 
+> This Gene+ vs Gene− comparison is useful to generate hypotheses on pathways and programs associated with expression of a gene of interest inside a defined cellular compartment (e.g., “cancer epithelial cells expressing GABBR1 vs not expressing it”).
+
+### 2) T-47D ChIP Viewer
+With `T47D_formatted_50.bed` (ChIP-Atlas export) and optional `ENCFF389ZVZ_cCREs.bigBed`:
+
+- Enter a **gene symbol** (HGNC; ENSG also supported if present)
+- Define a **flanking window (bp)**
+- Display peaks as an interactive **plotly scatter**
+  - Filter by factor, minimum score, point size
+  - **Click on any point to open the SRX** entry on ChIP-Atlas
+- Optionally overlay **ENCODE cCREs** (PLS/pELS/dELS/CTCF-only/DNase-H3K4me3)
+- Export a **static PDF** version of the plot
+
+---
+
+## Requirements
+
+- **R** (recommended ≥ 4.2)
+- Packages listed in the script (Shiny, Seurat, plotly, EnsDb.Hsapiens.v86, rtracklayer, DT, etc.)
+- Input files placed in the **same folder** as your `app.R`:
+  - **Mandatory (Single-cell):**
+    - `seurat_obj.rds`
+  - **Mandatory (ChIP viewer):**
+    - `T47D_formatted_50.bed`
+  - **Optional (ChIP viewer cCRE overlay):**
+    - `ENCFF389ZVZ_cCREs.bigBed`
+
+---
+
+## Installation / Setup
+
+1. Create a new folder (project directory), then place inside:
+   - `app.R` (the script)
+   - `seurat_obj.rds`
+   - `T47D_formatted_50.bed`
+   - optional: `ENCFF389ZVZ_cCREs.bigBed`
+
+2. In R / RStudio:
+   ```r
+   setwd("path/to/your/project_folder")
