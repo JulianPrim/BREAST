@@ -1,6 +1,5 @@
 ###############################################################
-#        Breast Cancer Toolkit: scBREAST + T-47D ChIP Viewer   #
-#  + FindMarkers (Gene+ vs Gene−) within selected subsets      #
+#        Breast Cancer Toolkit: BREAST + T-47D ChIP Viewer    #
 ###############################################################
 
 suppressPackageStartupMessages({
@@ -10,7 +9,7 @@ suppressPackageStartupMessages({
   library(ggplot2)
   library(RColorBrewer)
   library(Matrix)
-  library(grid)         # unit()
+  library(grid)         
   library(plotly)
   library(dplyr)
   library(readr)
