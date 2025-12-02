@@ -65,6 +65,24 @@ With `T47D_formatted_50.bed` (ChIP-Atlas export) and optional `ENCFF389ZVZ_cCREs
    - `T47D_formatted_50.bed`
    - `ENCFF389ZVZ_cCREs.bigBed`
 
-2. In R / RStudio:
+2. In RStudio:
    ```r
    setwd("path/to/your/project_folder")
+
+
+3. Install the packages one time:
+  ```r
+   
+install.packages(c(
+  "shiny","bslib","Seurat","ggplot2","RColorBrewer","Matrix","plotly",
+  "dplyr","readr","tibble","htmlwidgets","AnnotationFilter","GenomicRanges",
+  "IRanges","rtracklayer","stringr","tidyr","DT"
+))
+# Bioconductor packages
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+BiocManager::install(c("EnsDb.Hsapiens.v86"))
+```
+4. Press Run app
+
+
+
