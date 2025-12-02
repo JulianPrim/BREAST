@@ -88,7 +88,7 @@ names(palMaj_all) <- majors_all
 ui <- navbarPage(
   id = "mainnav",
   theme = app_theme,
-  title = tagList(icon("microscope"), "BREAST (Breast cancer Expression Analysis Software Tool"),
+  title = tagList(icon("microscope"), "BREAST (Breast cancer Expression Analysis Software Tool)"),
   
   # -------- Home --------
   tabPanel(
