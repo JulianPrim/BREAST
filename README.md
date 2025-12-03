@@ -67,7 +67,7 @@ With `T47D_formatted_50.bed` (ChIP-Atlas export) and optional `ENCFF389ZVZ_cCREs
 
 2. In RStudio:
 
-set you working directory either with session -> set working directory -> choose directory
+set you working directory either with session -> set working directory -> choose directory or with the adapted command:
    ```r
    setwd("path/to/your/project_folder")
 ```
